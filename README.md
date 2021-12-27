@@ -1,5 +1,7 @@
 ### Hi there 👋
 
+![](https://giphy.com/gifs/theroom-the-room-26CaLWA2dcqz6hS4U)
+
 <!--
 **Sarverott/Sarverott** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
