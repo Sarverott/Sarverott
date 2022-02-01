@@ -1,3 +1,16 @@
+<!--
+"Don't fear the reaper"♩♫♭
+![image](https://octodex.github.com/images/grim-repo.jpg)
+-->
+
+it's a cold grimm winter we have...
+![image](https://octodex.github.com/images/privateinvestocat.jpg)
+
+<!--
+dunes are waiting
+![image](https://octodex.github.com/images/dunetocat.png)
+-->
+<!--
 ### Hello World! 👋
 
 ``` 
@@ -14,7 +27,7 @@
       ░░░░░░░░░░as such protection does not conflict with ░░░░░░░░░░
      ░░░░░░░░░░░░░░░░░░░░ the First or Second Laws░░░░░░░░░░░░░░░░░░░░
 ```
-
+-->
 <!--
 **Sarverott/Sarverott** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
