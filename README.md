@@ -3,8 +3,8 @@
 ![image](https://octodex.github.com/images/grim-repo.jpg)
 -->
 
-it's a cold grimm winter we have...
-<img src="https://octodex.github.com/images/privateinvestocat.jpg" width=100px>
+<p>it's a cold grimm winter we have...</p>
+<img src="https://octodex.github.com/images/privateinvestocat.jpg" width=300px>
 
 <!--
 dunes are waiting
