@@ -4,7 +4,7 @@
 -->
 
 it's a cold grimm winter we have...
-![image](https://octodex.github.com/images/privateinvestocat.jpg)
+<img src="https://octodex.github.com/images/privateinvestocat.jpg" width=100px>
 
 <!--
 dunes are waiting
