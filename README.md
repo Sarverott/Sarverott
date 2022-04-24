@@ -2,7 +2,15 @@
 "Don't fear the reaper"♩♫♭
 ![image](https://octodex.github.com/images/grim-repo.jpg)
 -->
-<h1 color=red>sarverott</h1>
+# live and let live
+- my freedom has boundaries where your freedom starts, yours ends where my begins
+- less you knew better you sleep, more yor knew better you lives 
+- world will be always on edge of doom, but if we fail world will fall above the edge
+- war are started by countries, because countries are managed by conquerors, that conquer power without earning this honor
+- most remembered by history will be these who are the worst, because it is always good monster under bed to scare children
+- if we look on grain and then to stars, we should remember that all observable universe is grain, and all what we see on sky is at least space that we know that exist beyond our possibility to observe
+- the last observer will be able to see and understand everything in future, present and past, besides its own meaning, reasons and sense
+- human mind is like machine, to stay focused and  basic knowledge gets 
 <!--<img src="https://octodex.github.com/images/privateinvestocat.jpg" width=300px>-->
 
 <!--
