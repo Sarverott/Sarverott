@@ -4,7 +4,7 @@
 -->
 # live and let live
 - my freedom has boundaries where your freedom starts, yours ends where my begins
-- less you knew better you sleep, more yor knew better you lives 
+- less you knew better you sleep, more yor knew lesser you errs 
 - world will be always on edge of doom, but if we fail it will fall above this edge
 - war are started by countries, because countries are managed by conquerors, that conquer power without earning this honor
 - most remembered by history will be these who are the worst, because it is always good monster under bed to scare children
