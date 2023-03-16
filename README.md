@@ -1,5 +1,6 @@
 
-# live and let live; prompt("permision to freedom and peace")
+# live and let live; 
+### prompt("permision to freedom and peace");
 <!---- everyone diserves for own freedom equal to freedom of other people, but that needs to define boundries where one freedom ends and other begins
  less you knew better you sleep, more you knew lesser you make mistakes
 - the world we know will be in one way or another always on edge of that or another doom, but if we fail the world we know will fall above this edge and it will become the world we once knew
