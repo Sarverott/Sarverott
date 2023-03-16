@@ -1,7 +1,7 @@
 
 # live and let live
-- everyone diserves for own freedom equal to freedom of other people, but that needs to define boundries where one freedom ends and other begins
-- less you knew better you sleep, more you knew lesser you make mistakes
+<!---- everyone diserves for own freedom equal to freedom of other people, but that needs to define boundries where one freedom ends and other begins
+ less you knew better you sleep, more you knew lesser you make mistakes
 - the world we know will be in one way or another always on edge of that or another doom, but if we fail the world we know will fall above this edge and it will become the world we once knew
 - war is effective leverage to lift of debts of countries and the best tool to ensure nations about power of the conqueror that leads country, but 
 where is the point of debt cancellations, conqueror's power and nation or country leadership when everyone who cares about that things are dead
@@ -10,6 +10,7 @@ where is the point of debt cancellations, conqueror's power and nation or countr
 - if something doesn't make sense by it's unimaginable complexity and logicless basis we should be comforted by this, because it means that boundries of that are out of our possible range or we experience the nature of paradox - just leave it for a while
 - never expect enlightenment, it is the best way to avoid disappointment because of ignorance and good practice to make room for nice surprise when it comes
 - person is not an eternal monument, life is a constant change - not fate, but random cases and choices draw a biography
+-  -->
 <!--
 ### Hello World! 👋 
 
