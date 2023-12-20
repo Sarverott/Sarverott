@@ -7,5 +7,8 @@ I like technology, reading about its details and observing its vulnerabilities. 
 ![`<<< statistics of used languages >>>`][use-of-languages-statistics]
 ![`<<< statistics display >>>`][main-raport-stats]
 
-[main-raport-stats]: https://github-readme-stats.vercel.app/api?username=sarverott&show_icons=true&theme=radical&include_all_commits=true "statistics of my account"
-[use-of-languages-statistics]: https://github-readme-stats.vercel.app/api/top-langs/?username=sarverott&langs_count=8&theme=radical&layout=compact "languages I use in my published repos"
+![`<<< GitHub Streak >>>`][combo-stats]
+
+[combo-stats]: https://streak-stats.demolab.com?user=sarverott&theme=shadow-red
+[main-raport-stats]: https://github-readme-stats.vercel.app/api?username=sarverott&show_icons=true&theme=shadow-red&include_all_commits=true "statistics of my account"
+[use-of-languages-statistics]: https://github-readme-stats.vercel.app/api/top-langs/?username=sarverott&langs_count=8&theme=shadow-red&layout=compact "languages I use in my published repos"
