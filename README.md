@@ -7,8 +7,16 @@ I like technology, reading about its details and observing its vulnerabilities. 
 ![`<<< statistics of used languages >>>`][use-of-languages-statistics]
 ![`<<< statistics display >>>`][main-raport-stats]
 
+<details>
+<summary>more data</summary>
+
 ![`<<< GitHub Streak >>>`][combo-stats]
 
-[combo-stats]: https://streak-stats.demolab.com?user=sarverott&theme=shadow-red
-[main-raport-stats]: https://github-readme-stats.vercel.app/api?username=sarverott&show_icons=true&theme=shadow-red&include_all_commits=true "statistics of my account"
-[use-of-languages-statistics]: https://github-readme-stats.vercel.app/api/top-langs/?username=sarverott&langs_count=8&theme=shadow-red&layout=compact "languages I use in my published repos"
+![`<<< TryHackMe profile >>>`][tryhackme]
+  
+</details>
+
+[tryhackme]:  https://tryhackme-badges.s3.amazonaws.com/sarverott.png
+[combo-stats]: https://streak-stats.demolab.com?user=sarverott&theme=shadow-red&text_color=888888
+[main-raport-stats]: https://github-readme-stats.vercel.app/api?username=sarverott&show_icons=true&theme=shadow_red&include_all_commits=true
+[use-of-languages-statistics]: https://github-readme-stats.vercel.app/api/top-langs/?username=sarverott&langs_count=8&theme=shadow_red&layout=compact&text_color=888888
