@@ -36,12 +36,18 @@ I like technology, reading about its details and observing its vulnerabilities. 
 
 #### socialmedia 
 //
-[![FB][facebook-button]][facebook-link] //
-[![INSTAGRAM][instagram-button]][instagram-link] //
-[![TWITTER][twitter-button]][twitter-link] //
-[![BLOGSPOT][blogspot-button]][blogspot-link] //
-[![TUMBLR][tumblr-button]][tumblr-link] //
-[![REDDIT][reddit-button]][reddit-link] //
+[![FB][facebook-button]][facebook-link] 
+//
+[![INSTAGRAM][instagram-button]][instagram-link] 
+//
+[![TWITTER][twitter-button]][twitter-link] 
+//
+[![BLOGSPOT][blogspot-button]][blogspot-link] 
+//
+[![TUMBLR][tumblr-button]][tumblr-link] 
+// <!--
+[![REDDIT][reddit-button]][reddit-link] 
+// -->
 
 ---
 
