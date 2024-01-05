@@ -55,7 +55,10 @@ I like technology, reading about its details and observing its vulnerabilities. 
 
 <details>
   <summary> CONTACT </summary>
-  preffered is by mail: sarverott@gmail.com
+  
+  > preffered is by mail: 
+  > __sarverott@gmail.com__
+
 </details>
 
 > https://sarverott.github.io/
