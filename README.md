@@ -53,6 +53,11 @@ I like technology, reading about its details and observing its vulnerabilities. 
 
 </details>
 
+<details>
+  <summary>contact</summary>
+  preffered is by mail: sarverott@gmail.com
+</details>
+
 > https://sarverott.github.io/
 
 [reddit-button]: https://img.shields.io/badge/Reddit-%23FF4500.svg?style=for-the-badge&logo=Reddit&logoColor=white
