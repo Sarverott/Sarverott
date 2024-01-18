@@ -83,5 +83,5 @@ I like technology, reading about its details and observing its vulnerabilities. 
 [pip-link]: https://pip.sarverott.com/
 [tryhackme]:  https://tryhackme-badges.s3.amazonaws.com/sarverott.png
 [combo-stats]: https://streak-stats.demolab.com?user=sarverott&theme=shadow-red&text_color=888888
-[main-raport-stats]: https://github-readme-stats.vercel.app/api?username=sarverott&show_icons=true&theme=shadow_red&include_all_commits=true
+[main-raport-stats]: https://github-readme-stats.vercel.app/api?username=sarverott&show_icons=true&rank_icon=github&theme=shadow_red&include_all_commits=true
 [use-of-languages-statistics]: https://github-readme-stats.vercel.app/api/top-langs/?username=sarverott&langs_count=8&theme=shadow_red&layout=compact&text_color=888888
