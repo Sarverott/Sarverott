@@ -1,6 +1,10 @@
 # HELLO WORLD!
 
-I like technology, reading about its details and observing its vulnerabilities. I program by vocation, the open source mission inspired me to publish my works. I do not limit myself to specific environments and languages. Over the years, programming has become my form of self-expression. I hope that you find my work usefull.
+I like technology, reading about its details and observing its vulnerabilities. 
+I program by vocation, the open source mission inspired me to publish my work. 
+I do not limit myself to specific environment and language. 
+Over the years, programming has become my form of self-expression. 
+I hope that you find my work usefull and worth noticing.
 
 ---
 
