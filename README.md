@@ -11,7 +11,7 @@ I hope that you find my work usefull and worth noticing.
 ![`<<< statistics of used languages >>>`][use-of-languages-statistics]
 ![`<<< statistics display >>>`][main-raport-stats]
 
-<details> <summary> MORE STATS </summary>
+### MORE STATS 
 
 > Extension of statistic summary
 
@@ -23,9 +23,7 @@ I hope that you find my work usefull and worth noticing.
 
 ---
   
-</details>
-<details> <summary> LINKS </summary>
-  
+### LINKS   
 > Shordcuts to my work across the internet
 
 ---
@@ -34,15 +32,13 @@ I hope that you find my work usefull and worth noticing.
 | :--- | :--- |
 | [![NPM][npm-button]][npm-link] [![DOCKER][docker-button]][docker-link] [![PY-PI][pip-button]][pip-link] | [![FB][facebook-button]][facebook-link] [![INSTAGRAM][instagram-button]][instagram-link][![TWITTER][twitter-button]][twitter-link] [![BLOGSPOT][blogspot-button]][blogspot-link] [![TUMBLR][tumblr-button]][tumblr-link] |
 
-</details>
+---
 
-<details>
-  <summary> CONTACT </summary>
-  
+### CONTACT 
   > preffered is by mail: 
   > __sarverott@gmail.com__
 
-</details>
+---
 
 > https://sarverott.github.io/
 
