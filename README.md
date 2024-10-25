@@ -8,22 +8,18 @@ I hope that you find my work usefull and worth noticing.
 
 ---
 
-![`<<< statistics of used languages >>>`][use-of-languages-statistics]
-![`<<< statistics display >>>`][main-raport-stats]
-
-### MORE STATS 
+### Some statistical data 
 
 > Extension of statistic summary
 
 ---
-
-![`<<< TryHackMe profile >>>`][tryhackme]
-
-![`<<< GitHub Streak >>>`][combo-stats]
+| ![`<<< statistics of used languages >>>`][use-of-languages-statistics] | ![`<<< statistics display >>>`][main-raport-stats] |
+| :--- | :--- |
+| ![`<<< GitHub Streak >>>`][combo-stats] | ![`<<< TryHackMe profile >>>`][tryhackme] |
 
 ---
   
-### LINKS   
+### Links to my actions  
 > Shordcuts to my work across the internet
 
 ---
@@ -34,32 +30,32 @@ I hope that you find my work usefull and worth noticing.
 
 ---
 
-### CONTACT 
-  > preffered is by mail: 
-  > __sarverott@gmail.com__
+### More about
+| Contact ways | github supervision site | personal entry www |
+| --- | --- | --- |
+| EMAIL: __sarverott@gmail.com__ | GITHUB SITE: https://sarverott.github.io/ | WWW: https://sarverott.com/ |
 
 ---
 
-> https://sarverott.github.io/
 
 [reddit-button]: https://img.shields.io/badge/Reddit-%23FF4500.svg?style=for-the-badge&logo=Reddit&logoColor=white
-[reddit-link]: https://reddit.sarverott.com/
+[reddit-link]: https://www.reddit.com/user/sarverott/
 [facebook-button]: https://img.shields.io/badge/Facebook-1877F2.svg?style=for-the-badge&logo=Facebook&logoColor=white
-[facebook-link]: https://facebook.sarverott.com/
+[facebook-link]: https://www.facebook.com/sarverott
 [instagram-button]: https://img.shields.io/badge/Instagram-E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white
-[instagram-link]: https://instagram.sarverott.com/
+[instagram-link]: https://www.instagram.com/sarverott/
 [twitter-button]: https://img.shields.io/badge/Twitter-0D80D8.svg?style=for-the-badge&logo=X&logoColor=white
-[twitter-link]: https://twitter.sarverott.com/
+[twitter-link]: https://x.com/sarverott
 [tumblr-button]: https://img.shields.io/badge/Tumblr-36465D.svg?style=for-the-badge&logo=Tumblr&logoColor=white
-[tumblr-link]: https://tumblr.sarverott.com/
+[tumblr-link]: https://sarverott.tumblr.com/
 [blogspot-button]: https://img.shields.io/badge/Blogspot-FF5722.svg?style=for-the-badge&logo=Blogger&logoColor=white
-[blogspot-link]: https://blogspot.sarverott.com/
+[blogspot-link]:https://sarverott.blogspot.com/
 [npm-button]: https://badgen.net/badge/icon/sarverott?icon=npm&color=red&label=NPM%20packages&labelColor=black
-[npm-link]: https://npm.sarverott.com/
+[npm-link]: https://www.npmjs.com/~sarverott
 [docker-button]: https://badgen.net/badge/icon/sarverott?icon=docker&color=red&label=Docker%20containers&labelColor=black
-[docker-link]: https://docker.sarverott.com/
+[docker-link]: https://hub.docker.com/u/sarverott
 [pip-button]: https://badgen.net/badge/icon/sarverott?icon=pypi&color=red&label=PyPi%20packages&labelColor=black
-[pip-link]: https://pip.sarverott.com/
+[pip-link]: https://pypi.org/user/sarverott/
 [tryhackme]:  https://tryhackme-badges.s3.amazonaws.com/sarverott.png
 [combo-stats]: https://streak-stats.demolab.com?user=sarverott&theme=shadow-red&text_color=888888
 [main-raport-stats]: https://github-readme-stats.vercel.app/api?username=sarverott&show_icons=true&rank_icon=github&theme=shadow_red&include_all_commits=true
