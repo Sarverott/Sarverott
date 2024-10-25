@@ -30,30 +30,9 @@ I hope that you find my work usefull and worth noticing.
 
 ---
 
-| developer platforms |
-| :---: |
-| [![NPM][npm-button]][npm-link] |
-| [![DOCKER][docker-button]][docker-link] | 
-| [![PY-PI][pip-button]][pip-link] | 
-
----
-
-#### socialmedia 
-//
-[![FB][facebook-button]][facebook-link] 
-//
-[![INSTAGRAM][instagram-button]][instagram-link] 
-//
-[![TWITTER][twitter-button]][twitter-link] 
-//
-[![BLOGSPOT][blogspot-button]][blogspot-link] 
-//
-[![TUMBLR][tumblr-button]][tumblr-link] 
-// <!--
-[![REDDIT][reddit-button]][reddit-link] 
-// -->
-
----
+| developer platforms | socialmedia 
+| :--- | :--- |
+| [![NPM][npm-button]][npm-link] [![DOCKER][docker-button]][docker-link] [![PY-PI][pip-button]][pip-link] | [![FB][facebook-button]][facebook-link] [![INSTAGRAM][instagram-button]][instagram-link][![TWITTER][twitter-button]][twitter-link] [![BLOGSPOT][blogspot-button]][blogspot-link] [![TUMBLR][tumblr-button]][tumblr-link] |
 
 </details>
 
