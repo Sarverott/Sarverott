@@ -33,7 +33,7 @@ I hope that you find my work usefull and worth noticing.
 ### More about
 | Contact ways | github supervision site | personal entry www |
 | --- | --- | --- |
-| EMAIL: __sarverott@gmail.com__ | GITHUB SITE: https://sarverott.github.io/ | WWW: https://sarverott.com/ |
+| EMAIL: __sett@sarverott.com__ | GITHUB SITE: https://sarverott.github.io/ | WWW: https://sarverott.com/ |
 
 ---
 
