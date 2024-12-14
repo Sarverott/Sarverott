@@ -26,7 +26,7 @@ I hope that you find my work usefull and worth noticing.
 
 | developer platforms | socialmedia 
 | :--- | :--- |
-| [![NPM][npm-button]][npm-link] [![DOCKER][docker-button]][docker-link] [![PY-PI][pip-button]][pip-link] | [![FB][facebook-button]][facebook-link] [![INSTAGRAM][instagram-button]][instagram-link][![TWITTER][twitter-button]][twitter-link] [![BLOGSPOT][blogspot-button]][blogspot-link] [![TUMBLR][tumblr-button]][tumblr-link] |
+| [![NPM][npm-button]][npm-link] [![DOCKER][docker-button]][docker-link] [![PY-PI][pip-button]][pip-link] [![Packagist][composer-button]][composer-link] | [![FB][facebook-button]][facebook-link] [![INSTAGRAM][instagram-button]][instagram-link][![TWITTER][twitter-button]][twitter-link] [![BLOGSPOT][blogspot-button]][blogspot-link] [![TUMBLR][tumblr-button]][tumblr-link] |
 
 ---
 
@@ -56,6 +56,8 @@ I hope that you find my work usefull and worth noticing.
 [docker-link]: https://hub.docker.com/u/sarverott
 [pip-button]: https://badgen.net/badge/icon/sarverott?icon=pypi&color=red&label=PyPi%20packages&labelColor=black
 [pip-link]: https://pypi.org/user/sarverott/
+[composer-button]: https://badgen.net/badge/icon/sarverott?icon=php&color=red&label=Composer%20packages&labelColor=black
+[composer-link]: https://packagist.org/users/Sarverott/
 [tryhackme]:  https://tryhackme-badges.s3.amazonaws.com/sarverott.png
 [combo-stats]: https://streak-stats.demolab.com?user=sarverott&theme=shadow-red&text_color=888888
 [main-raport-stats]: https://github-readme-stats.vercel.app/api?username=sarverott&show_icons=true&rank_icon=github&theme=shadow_red&include_all_commits=true
