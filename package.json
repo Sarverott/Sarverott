@@ -1,0 +1,23 @@
+{
+  "name": "github-tree-sett-sarverott",
+  "version": "1.0.0",
+  "description": "me in the net",
+  "keywords": [
+    "sarverott",
+    "sett"
+  ],
+  "homepage": "https://github.com/Sarverott/Sarverott#readme",
+  "bugs": {
+    "url": "https://github.com/Sarverott/Sarverott/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sarverott/Sarverott.git"
+  },
+  "author": "Sett Sarverott",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "task"
+  }
+}
