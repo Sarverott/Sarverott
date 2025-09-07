@@ -37,6 +37,73 @@ I hope that you find my work usefull and worth noticing.
 
 ---
 
+```js
+import Driveset from "void-physics";
+import {ME, about, soul, I} from "myself";
+import {nightmares, hopes} from "dreams";
+import {plans, concepts, ideas, forecasts} from "possible";
+import {memory, thinking, OS, MIND, RootPoint} from "mind";
+
+//var universe = new .Ref(import.meta);
+
+//var entity = driveset
+function(oniconstantevaluation){
+	console.log(
+		"# Total of Absolution Determined #"
+	);
+	console.log(
+		oniconstantevaluation
+		
+		
+	);
+}
+
+
+const OUR_RELM = new Driveset.ref(
+	import("universe").then(
+		(absolut)=>{
+			
+			
+		}
+	).catch(
+		(err)=>{
+			
+		}
+	)
+	//Math.complex(index.meta)
+).Context().Entity.Existance((this)=>this );
+
+context.define(
+	ME,
+	[
+		"Sett Sarverott",
+		"A.A.B."
+	],
+	class I extends Person{
+		lineage(){
+			return this instanceof human;
+		}
+	}
+)
+
+import Human from "earth";
+import Member from "society";
+import Person from "the-people";
+import Particle from "civilisation";
+
+
+import {fields, develop, answers, unknown} from "knowledge";
+
+
+import * as PROJECTS from "technical-development";
+import * as ART from "perception-of-beauty";
+import * as POEMS from "inner-feelings";
+import * as LORE from "warning-tales";
+
+
+```
+
+
 
 [reddit-button]: https://img.shields.io/badge/Reddit-%23FF4500.svg?style=for-the-badge&logo=Reddit&logoColor=white
 [reddit-link]: https://www.reddit.com/user/sarverott/
