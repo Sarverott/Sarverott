@@ -5,9 +5,12 @@ description = "my forest of thoughts"
 authors = ["Sett Sarverott <sarverott@gmail.com>"]
 readme = "README.md"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "solders>=0.27.1",
+]
 
 [dependency-groups]
 dev = [
     "go-task-bin>=3.49.1",
+    "notebook>=7.5.5",
 ]

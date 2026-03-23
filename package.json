@@ -18,7 +18,8 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "task"
+    "test": "task",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@go-task/cli": "^3.49.1",
