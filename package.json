@@ -19,5 +19,9 @@
   "main": "index.js",
   "scripts": {
     "test": "task"
+  },
+  "devDependencies": {
+    "@go-task/cli": "^3.49.1",
+    "husky": "^9.1.7"
   }
 }

@@ -1,14 +1,13 @@
-[tool.poetry]
-name = "github-tree-sett-sarverott"
+[project]
+name = "sarverott"
 version = "0.1.0"
-description = "me on the net"
+description = "my forest of thoughts"
 authors = ["Sett Sarverott <sarverott@gmail.com>"]
 readme = "README.md"
+requires-python = ">=3.14"
+dependencies = []
 
-[tool.poetry.dependencies]
-python = "^3.12"
-
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[dependency-groups]
+dev = [
+    "go-task-bin>=3.49.1",
+]
