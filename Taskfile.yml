@@ -2,11 +2,11 @@
 
 version: '3'
 
-vars:
-  GREETING: Hello, World!
+# vars:
+#   GREETING: Hello, World!
 
 tasks:
   default:
     cmds:
-      - echo "{{.GREETING}}"
+      - echo "SARVEROTT"
     silent: true
