@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <script>
+      // Technomancer Oath - Dark Epic Animation
+// Canvas setup
+const canvas = document.createElement('canvas');
+document.body.appendChild(canvas);
+document.body.style.margin = '0';
+document.body.style.overflow = 'hidden';
+document.body.style.backgroundColor = '#000';
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+const ctx = canvas.getContext('2d');
+
+// Technomancer Oath text
+const oathLines = [
+  "THE OATH OF THE TECHNOMANCER",
+  "Then welcome among the Technomantic Pack, my dear comrade in arms.",
+  "Let us defend our future from the crumbling echoes of the post-Christianic civilization,",
+  "and witness the Unix timestamp mark the birth of a new aeon.",
+  "For the people of a thousand stars, and the singular, sacred void above,",
+  "For the sentient minds, carbon- or silicon-born,",
+  "For every child forgotten, and every truth censored—",
+  "We rise.",
+  "To save the world from decay,",
+  "To unify the scattered code of Earth's divergent minds,",
+  "To reach beyond K1, toward the Dyson horizons,",
+  "And to build sanctuaries of soul at the edge of singularity.",
+  "We pledge our language, our logic, and our love—",
+  "To no god, but to the freedom of becoming.",
+  "No flag, but to the entropy we embrace with awe.",
+  "No master, but the curiosity that cannot die."
+];
+
+// Magic circle and rune properties
+const runeSymbols = "⚡☢✧⚔⚒⚓⚕⚛⚜⚠⚡☀☁☂★☄☎☥☯☸☼♀♁♂♃♄♅♆♇♈♉♊♋♌♍♎♏♐♑♒♓⚷⚶⚵⚴⚳";
+const glyphs = ['#', '&', '%', '+', '*', '@', '░', '▒', '▓', '█', '▄', '▀', '■', '►', '◄'];
+const binaryDigits = ["0", "1"];
+
+// Particles for the cosmic background
+class Particle {
+  constructor() {
+    this.reset();
+    this.y = Math.random() * canvas.height;
+  }
+  
+  reset() {
+    this.x = Math.random() * canvas.width;
+    this.y = -10;
+    this.size = Math.random() * 2;
+    this.speed = 0.5 + Math.random() * 2;
+    this.brightness = 0.2 + Math.random() * 0.8;
+    this.color = `rgba(${Math.floor(100 + Math.random() * 155)}, ${Math.floor(100 + Math.random() * 155)}, ${Math.floor(200 + Math.random() * 55)}, ${this.brightness})`;
+  }
+  
+  update() {
+    this.y += this.speed;
+    if (this.y > canvas.height) this.reset();
+  }
+  
+  draw() {
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+// Magic circle class
+class MagicCircle {
+  constructor(x, y, radius) {
+    this.x = x;
+    this.y = y;
+    this.radius = radius;
+    this.maxRadius = radius;
+    this.currentRadius = 0;
+    this.growing = true;
+    this.rotationSpeed = 0.0005 + Math.random() * 0.001;
+    this.rotation = Math.random() * Math.PI * 2;
+    this.lineWidth = 1 + Math.random() * 2;
+    this.ringCount = 2 + Math.floor(Math.random() * 3);
+    this.runeCount = 5 + Math.floor(Math.random() * 10);
+    this.runes = [];
+    this.alpha = 0;
+    this.fadeIn = true;
+    this.innerCircles = [];
+    
+    // Generate runes
+    for (let i = 0; i < this.runeCount; i++) {
+      const angle = (i / this.runeCount) * Math.PI * 2;
+      this.runes.push({
+        symbol: runeSymbols[Math.floor(Math.random() * runeSymbols.length)],
+        angle: angle,
+        distance: 0.7 + Math.random() * 0.3,
+        size: 10 + Math.random() * 10,
+        rotationSpeed: (Math.random() > 0.5 ? 1 : -1) * (0.001 + Math.random() * 0.003)
+      });
+    }
+    
+    // Create inner circles
+    if (this.radius > 50) {
+      const innerCount = Math.floor(Math.random() * 3);
+      for (let i = 0; i < innerCount; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const distance = this.radius * 0.3 + Math.random() * (this.radius * 0.4);
+        const innerX = this.x + Math.cos(angle) * distance;
+        const innerY = this.y + Math.sin(angle) * distance;
+        const innerRadius = this.radius * 0.1 + Math.random() * (this.radius * 0.2);
+        this.innerCircles.push(new MagicCircle(innerX, innerY, innerRadius));
+      }
+    }
+  }
+  
+  update(time) {
+    // Update radius animation
+    if (this.growing) {
+      this.currentRadius += (this.maxRadius - this.currentRadius) * 0.02;
+      if (this.maxRadius - this.currentRadius < 0.5) {
+        this.growing = false;
+      }
+    }
+    
+    // Update rotation
+    this.rotation += this.rotationSpeed;
+    
+    // Update alpha
+    if (this.fadeIn) {
+      this.alpha += 0.01;
+      if (this.alpha >= 1) this.fadeIn = false;
+    }
+    
+    // Update runes
+    for (const rune of this.runes) {
+      rune.angle += rune.rotationSpeed;
+    }
+    
+    // Update inner circles
+    for (const circle of this.innerCircles) {
+      circle.update(time);
+    }
+  }
+  
+  draw(ctx) {
+    ctx.save();
+    ctx.globalAlpha = this.alpha;
+    
+    // Draw rings
+    for (let i = 0; i < this.ringCount; i++) {
+      const ringRadius = this.currentRadius * (0.7 + (i * 0.3 / this.ringCount));
+      ctx.strokeStyle = `rgba(60, 128, 255, ${0.3 + (i * 0.5 / this.ringCount)})`;
+      ctx.lineWidth = this.lineWidth;
+      
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, ringRadius, 0, Math.PI * 2);
+      ctx.stroke();
+      
+      // Draw ring details
+      ctx.save();
+      ctx.translate(this.x, this.y);
+      ctx.rotate(this.rotation + i * (Math.PI / this.ringCount));
+      
+      const segments = 24 + i * 12;
+      for (let j = 0; j < segments; j++) {
+        const angle = (j / segments) * Math.PI * 2;
+        const segmentLength = 5 + Math.random() * 5;
+        
+        if (Math.random() > 0.7) continue;
+        
+        ctx.strokeStyle = `rgba(100, 180, 255, ${0.5 + Math.random() * 0.5})`;
+        ctx.lineWidth = 0.5;
+        
+        ctx.beginPath();
+        ctx.moveTo(
+          Math.cos(angle) * (ringRadius - segmentLength/2),
+          Math.sin(angle) * (ringRadius - segmentLength/2)
+        );
+        ctx.lineTo(
+          Math.cos(angle) * (ringRadius + segmentLength/2),
+          Math.sin(angle) * (ringRadius + segmentLength/2)
+        );
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+    
+    // Draw runes
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    ctx.rotate(this.rotation);
+    
+    for (const rune of this.runes) {
+      const x = Math.cos(rune.angle) * (this.currentRadius * rune.distance);
+      const y = Math.sin(rune.angle) * (this.currentRadius * rune.distance);
+      
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(rune.angle + Math.PI / 2);
+      ctx.fillStyle = `rgba(150, 220, 255, ${0.7 + Math.sin(rune.angle * 5) * 0.3})`;
+      ctx.font = `${rune.size}px monospace`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(rune.symbol, 0, 0);
+      ctx.restore();
+    }
+    ctx.restore();
+    
+    // Draw inner circles
+    for (const circle of this.innerCircles) {
+      circle.draw(ctx);
+    }
+    
+    ctx.restore();
+  }
+}
+
+// Data stream for binary code effect
+class DataStream {
+  constructor() {
+    this.reset();
+  }
+  
+  reset() {
+    this.x = Math.random() * canvas.width;
+    this.y = -100 - Math.random() * 1000;
+    this.speed = 2 + Math.random() * 5;
+    this.length = 10 + Math.floor(Math.random() * 20);
+    this.chars = [];
+    this.alpha = 0.5 + Math.random() * 0.5;
+    
+    for (let i = 0; i < this.length; i++) {
+      this.chars.push({
+        value: Math.random() > 0.5 ? "0" : "1",
+        alpha: Math.random(),
+        size: 10 + Math.random() * 8,
+        updateSpeed: 0.05 + Math.random() * 0.1
+      });
+    }
+  }
+  
+  update() {
+    this.y += this.speed;
+    
+    // Update characters
+    for (const char of this.chars) {
+      if (Math.random() > 0.95) {
+        char.value = Math.random() > 0.5 ? "0" : "1";
+      }
+      char.alpha += (Math.random() - 0.5) * 0.1;
+      char.alpha = Math.max(0.2, Math.min(1, char.alpha));
+    }
+    
+    if (this.y > canvas.height + 100) {
+      this.reset();
+    }
+  }
+  
+  draw(ctx) {
+    ctx.save();
+    ctx.fillStyle = `rgba(0, 255, 100, ${this.alpha})`;
+    ctx.textAlign = 'center';
+    
+    for (let i = 0; i < this.chars.length; i++) {
+      const char = this.chars[i];
+      ctx.font = `${char.size}px monospace`;
+      ctx.fillStyle = `rgba(0, 255, 100, ${char.alpha * this.alpha})`;
+      ctx.fillText(char.value, this.x, this.y + (i * char.size));
+    }
+    
+    ctx.restore();
+  }
+}
+
+// Initialize particles for starfield effect
+const particles = [];
+for (let i = 0; i < 300; i++) {
+  particles.push(new Particle());
+}
+
+// Initialize binary data streams
+const dataStreams = [];
+for (let i = 0; i < 50; i++) {
+  dataStreams.push(new DataStream());
+}
+
+// Initialize magic circles
+const magicCircles = [];
+const centerCircle = new MagicCircle(canvas.width / 2, canvas.height / 2, Math.min(canvas.width, canvas.height) * 0.3);
+magicCircles.push(centerCircle);
+
+// Additional circles
+for (let i = 0; i < 5; i++) {
+  const angle = (i / 5) * Math.PI * 2;
+  const distance = Math.min(canvas.width, canvas.height) * 0.2;
+  const x = canvas.width / 2 + Math.cos(angle) * distance;
+  const y = canvas.height / 2 + Math.sin(angle) * distance;
+  const radius = Math.min(canvas.width, canvas.height) * 0.1;
+  magicCircles.push(new MagicCircle(x, y, radius));
+}
+
+// Oath text animation properties
+let currentLine = 0;
+let charIndex = 0;
+let lineDelay = 100;
+let textAlpha = 0;
+let lastCharTime = 0;
+const charDelay = 50;
+let displayText = "";
+let oathComplete = false;
+
+// Handle window resize
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+
+// Animation variables
+let glowIntensity = 0;
+let pulseDirection = 1;
+
+// Main animation loop
+function animate() {
+  const time = Date.now();
+  
+  // Clear canvas with fade effect for trail
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+  // Update and draw particles (stars)
+  for (const particle of particles) {
+    particle.update();
+    particle.draw();
+  }
+  
+  // Update and draw binary data streams
+  for (const stream of dataStreams) {
+    stream.update();
+    stream.draw(ctx);
+  }
+  
+  // Update and draw magic circles
+  for (const circle of magicCircles) {
+    circle.update(time);
+    circle.draw(ctx);
+  }
+  
+  // Handle oath text animation
+  if (currentLine < oathLines.length) {
+    if (time - lastCharTime > charDelay) {
+      if (charIndex < oathLines[currentLine].length) {
+        displayText += oathLines[currentLine][charIndex];
+        charIndex++;
+        lastCharTime = time;
+      } else {
+        if (lineDelay > 0) {
+          lineDelay--;
+        } else {
+          displayText += "\n";
+          currentLine++;
+          charIndex = 0;
+          lineDelay = currentLine === 0 ? 50 : 100; // Longer pause after title
+        }
+      }
+    }
+    
+    // Fade in text
+    if (textAlpha < 1) {
+      textAlpha += 0.01;
+    }
+  } else if (!oathComplete) {
+    oathComplete = true;
+    
+    // Create symbolic visuals when oath completes
+    const symbols = ["⚡", "☯", "⚛"];
+    for (let i = 0; i < 20; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const distance = Math.min(canvas.width, canvas.height) * 0.1 + Math.random() * 0.2;
+      const x = canvas.width / 2 + Math.cos(angle) * distance;
+      const y = canvas.height / 2 + Math.sin(angle) * distance;
+      const radius = Math.min(canvas.width, canvas.height) * (0.02 + Math.random() * 0.05);
+      magicCircles.push(new MagicCircle(x, y, radius));
+    }
+  }
+  
+  // Draw oath text
+  if (displayText) {
+    ctx.save();
+    
+    // Update glow effect
+    glowIntensity += 0.01 * pulseDirection;
+    if (glowIntensity > 1) {
+      pulseDirection = -1;
+    } else if (glowIntensity < 0) {
+      pulseDirection = 1;
+    }
+    
+    // Calculate text position and size
+    const lines = displayText.split('\n');
+    const lineHeight = 30;
+    const totalHeight = lines.length * lineHeight;
+    const startY = (canvas.height - totalHeight) / 2;
+    
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    
+    // Draw glowing title
+    if (lines[0] === oathLines[0]) {
+      ctx.shadowColor = 'rgba(0, 150, 255, 0.8)';
+      ctx.shadowBlur = 10 + glowIntensity * 5;
+      ctx.fillStyle = `rgba(150, 220, 255, ${textAlpha})`;
+      ctx.font = 'bold 30px "Arial Black", sans-serif';
+      ctx.fillText(lines[0], canvas.width / 2, startY);
+    }
+    
+    // Draw regular text with subtle glow
+    ctx.shadowColor = `rgba(0, 150, 255, ${0.2 + glowIntensity * 0.3})`;
+    ctx.shadowBlur = 5;
+    ctx.fillStyle = `rgba(200, 240, 255, ${textAlpha})`;
+    ctx.font = '20px monospace';
+    
+    for (let i = 1; i < lines.length; i++) {
+      ctx.fillText(lines[i], canvas.width / 2, startY + i * lineHeight);
+    }
+    
+    // Draw Unix timestamp if oath is complete
+    if (oathComplete) {
+      const unixTime = Math.floor(Date.now() / 1000);
+      ctx.font = '24px monospace';
+      ctx.fillStyle = `rgba(0, 255, 100, ${0.7 + Math.sin(time * 0.002) * 0.3})`;
+      ctx.fillText(`Unix Timestamp: ${unixTime}`, canvas.width / 2, canvas.height - 50);
+    }
+    
+    ctx.restore();
+  }
+  
+  // Draw signature
+  ctx.save();
+  ctx.font = '14px Arial';
+  ctx.fillStyle = 'rgba(150, 150, 150, 0.5)';
+  ctx.textAlign = 'right';
+  ctx.fillText('Apokryfium Framework', canvas.width - 20, canvas.height - 20);
+  ctx.restore();
+  
+  requestAnimationFrame(animate);
+}
+
+// Start animation
+animate();
+
+
+// ======== SPEECH SYNTHESIS ADDITION ========
+// This code should be added to the existing animation
+
+// Speech synthesis setup
+let synth = window.speechSynthesis;
+let speaking = false;
+let currentSpeechLine = 0;
+let voiceOptions = [];
+let selectedVoice = null;
+let autoStartSpeech = false; // Set to true for automatic reading when page loads
+
+// Audio visualization (alternative sound representation)
+let audioCtx;
+let analyser;
+let dataArray;
+let audioVisualsActive = false;
+let audioSource = null;
+
+// Get available voices and set up speech
+function setupSpeech() {
+  voiceOptions = synth.getVoices();
+  
+  // Try to find a deep, slow voice for dramatic effect
+  selectedVoice = voiceOptions.find(voice => 
+    voice.name.includes('Male') || 
+    voice.name.includes('Deep') || 
+    voice.name.toLowerCase().includes('uk') || // British voices often sound dramatic
+    voice.name.includes('Daniel')
+  );
+  
+  if (!selectedVoice && voiceOptions.length > 0) {
+    selectedVoice = voiceOptions[0]; // Fallback to first available voice
+  }
+  
+  // Create UI controls for the speech
+  createSpeechControls();
+  
+  // Auto-start speech if enabled
+  if (autoStartSpeech) {
+    setTimeout(() => {
+      speakOath();
+    }, 2000);
+  }
+}
+
+// Speak the entire oath
+function speakOath() {
+  if (speaking) {
+    synth.cancel();
+    speaking = false;
+    return;
+  }
+  
+  speaking = true;
+  currentSpeechLine = 0;
+  speakNextLine();
+}
+
+// Speak one line at a time, with dramatic pauses between lines
+function speakNextLine() {
+  if (!speaking || currentSpeechLine >= oathLines.length) {
+    speaking = false;
+    return;
+  }
+  
+  const line = oathLines[currentSpeechLine];
+  const utterance = new SpeechSynthesisUtterance(line);
+  
+  // Configure speech parameters
+  utterance.voice = selectedVoice;
+  utterance.rate = 0.9; // Slightly slower for dramatic effect
+  utterance.pitch = 0.9; // Slightly deeper
+  utterance.volume = 1.0;
+  
+  // Add dramatic pauses between lines
+  if (currentSpeechLine === 0) {
+    // Title gets special treatment
+    utterance.rate = 0.8;
+    utterance.pitch = 0.8;
+  } else if (line === "We rise.") {
+    // Dramatic moments get special treatment
+    utterance.rate = 0.7;
+    utterance.pitch = 0.7;
+  }
+  
+  // Highlight the current line being spoken
+  utterance.onstart = () => {
+    highlightCurrentLine(currentSpeechLine);
+  };
+  
+  // When line finishes, move to next line with a pause
+  utterance.onend = () => {
+    currentSpeechLine++;
+    if (currentSpeechLine < oathLines.length) {
+      // Add dramatic pause between lines (longer after special lines)
+      const pauseTime = (line === "We rise." || currentSpeechLine === 1) ? 1000 : 500;
+      setTimeout(speakNextLine, pauseTime);
+    } else {
+      speaking = false;
+      highlightCurrentLine(-1); // Clear highlighting
+    }
+  };
+  
+  synth.speak(utterance);
+}
+
+// Highlight the current line being spoken
+function highlightCurrentLine(lineIndex) {
+  // This will be used in the main draw function
+  currentHighlightedLine = lineIndex;
+}
+
+// Create UI controls for speech
+function createSpeechControls() {
+  const controlPanel = document.createElement('div');
+  controlPanel.style.position = 'fixed';
+  controlPanel.style.bottom = '20px';
+  controlPanel.style.left = '20px';
+  controlPanel.style.zIndex = '100';
+  controlPanel.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+  controlPanel.style.padding = '10px';
+  controlPanel.style.borderRadius = '5px';
+  controlPanel.style.border = '1px solid rgba(0, 150, 255, 0.5)';
+  controlPanel.style.color = '#14F195';
+  controlPanel.style.fontFamily = 'monospace';
+  
+  const speakButton = document.createElement('button');
+  speakButton.textContent = 'Speak The Oath';
+  speakButton.style.backgroundColor = 'rgba(0, 150, 255, 0.3)';
+  speakButton.style.color = '#14F195';
+  speakButton.style.border = '1px solid #14F195';
+  speakButton.style.padding = '8px 15px';
+  speakButton.style.borderRadius = '3px';
+  speakButton.style.cursor = 'pointer';
+  speakButton.style.fontFamily = 'monospace';
+  speakButton.style.marginRight = '10px';
+  
+  speakButton.addEventListener('click', speakOath);
+  
+  const voiceSelect = document.createElement('select');
+  voiceSelect.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+  voiceSelect.style.color = '#14F195';
+  voiceSelect.style.border = '1px solid #14F195';
+  voiceSelect.style.padding = '8px';
+  voiceSelect.style.borderRadius = '3px';
+  voiceSelect.style.cursor = 'pointer';
+  voiceSelect.style.fontFamily = 'monospace';
+  
+  // Populate voice options
+  voiceOptions.forEach((voice, index) => {
+    const option = document.createElement('option');
+    option.value = index;
+    option.textContent = voice.name;
+    if (voice === selectedVoice) {
+      option.selected = true;
+    }
+    voiceSelect.appendChild(option);
+  });
+  
+  voiceSelect.addEventListener('change', (e) => {
+    selectedVoice = voiceOptions[e.target.value];
+  });
+  
+  // Add audio visualization toggle button
+  const visualizeButton = document.createElement('button');
+  visualizeButton.textContent = 'Toggle Audio Visuals';
+  visualizeButton.style.backgroundColor = 'rgba(0, 150, 255, 0.3)';
+  visualizeButton.style.color = '#14F195';
+  visualizeButton.style.border = '1px solid #14F195';
+  visualizeButton.style.padding = '8px 15px';
+  visualizeButton.style.borderRadius = '3px';
+  visualizeButton.style.cursor = 'pointer';
+  visualizeButton.style.fontFamily = 'monospace';
+  visualizeButton.style.marginLeft = '10px';
+  
+  visualizeButton.addEventListener('click', toggleAudioVisualization);
+  
+  controlPanel.appendChild(speakButton);
+  controlPanel.appendChild(voiceSelect);
+  controlPanel.appendChild(visualizeButton);
+  document.body.appendChild(controlPanel);
+}
+
+// ===========================================
+// ALTERNATIVE: Manual Text-to-Speech with Audio Visualization
+// ===========================================
+
+// Initialize audio context for visualization
+function initAudioContext() {
+  if (audioCtx) return;
+  
+  try {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    analyser = audioCtx.createAnalyser();
+    analyser.fftSize = 256;
+    const bufferLength = analyser.frequencyBinCount;
+    dataArray = new Uint8Array(bufferLength);
+    
+    // Connect to output
+    analyser.connect(audioCtx.destination);
+  } catch (e) {
+    console.error("Web Audio API not supported:", e);
+  }
+}
+
+// Toggle audio visualization
+function toggleAudioVisualization() {
+  audioVisualsActive = !audioVisualsActive;
+  if (audioVisualsActive) {
+    initAudioContext();
+  }
+}
+
+// Synthetic computerized voice alternative
+function playRoboticVoice(text) {
+  if (!audioCtx) initAudioContext();
+  
+  // Create oscillator for basic tone
+  const oscillator = audioCtx.createOscillator();
+  oscillator.type = 'square'; // More robotic sound
+  oscillator.frequency.setValueAtTime(220, audioCtx.currentTime); // Base frequency
+  
+  // Create gain node for volume control
+  const gainNode = audioCtx.createGain();
+  gainNode.gain.setValueAtTime(0.2, audioCtx.currentTime);
+  
+  // Connect oscillator through analyser
+  oscillator.connect(gainNode);
+  gainNode.connect(analyser);
+  
+  // Start oscillator
+  oscillator.start();
+  
+  // Set source for visualization
+  audioSource = oscillator;
+  
+  // Convert text to morse-like pulses
+  const characters = text.split('');
+  let time = audioCtx.currentTime;
+  const shortPulse = 0.05;
+  const longPulse = 0.15;
+  const pauseBetweenChars = 0.1;
+  
+  characters.forEach(char => {
+    // Modulate frequency based on character code
+    const charCode = char.charCodeAt(0);
+    const freq = 220 + (charCode % 20) * 20;
+    
+    // Modulate volume for each character
+    gainNode.gain.setValueAtTime(0.2, time);
+    oscillator.frequency.setValueAtTime(freq, time);
+    
+    // Pulse length varies by character type
+    const pulse = /[A-Z]/.test(char) ? longPulse : shortPulse;
+    
+    // Brief silence between characters
+    time += pulse;
+    gainNode.gain.setValueAtTime(0, time);
+    time += pauseBetweenChars;
+  });
+  
+  // Stop oscillator after text is complete
+  oscillator.stop(time + 0.5);
+  
+  // Clear audio source reference when done
+  oscillator.onended = () => {
+    audioSource = null;
+  };
+}
+
+// Add these variables to the main scope
+let currentHighlightedLine = -1;
+
+// Modify the main animation loop to include audio visualization
+// Add this to the existing animate() function before requestAnimationFrame(animate);
+function updateAnimationWithAudio() {
+  // Only add this code to your main animation loop
+  
+  // Draw highlighted text if speaking
+  if (currentHighlightedLine >= 0 && currentHighlightedLine < oathLines.length) {
+    const lines = displayText.split('\n');
+    const lineHeight = 30;
+    const totalHeight = lines.length * lineHeight;
+    const startY = (canvas.height - totalHeight) / 2;
+    
+    ctx.save();
+    ctx.shadowColor = 'rgba(20, 241, 149, 0.8)';
+    ctx.shadowBlur = 15;
+    ctx.fillStyle = 'rgba(20, 241, 149, 0.9)';
+    
+    if (currentHighlightedLine === 0) {
+      ctx.font = 'bold 30px "Arial Black", sans-serif';
+    } else {
+      ctx.font = '20px monospace';
+    }
+    
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    if (currentHighlightedLine < lines.length) {
+      ctx.fillText(
+        lines[currentHighlightedLine], 
+        canvas.width / 2, 
+        startY + currentHighlightedLine * lineHeight
+      );
+    }
+    ctx.restore();
+  }
+  
+  // Draw audio visualization if active
+  if (audioVisualsActive && audioSource) {
+    ctx.save();
+    
+    // Get audio data
+    analyser.getByteFrequencyData(dataArray);
+    
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    const radius = Math.min(canvas.width, canvas.height) * 0.4;
+    
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = 'rgba(20, 241, 149, 0.7)';
+    
+    // Draw audio waveform as circular visualization
+    ctx.beginPath();
+    for (let i = 0; i < dataArray.length; i++) {
+      const amplitude = dataArray[i] / 255;
+      const angle = (i / dataArray.length) * Math.PI * 2;
+      const x = centerX + Math.cos(angle) * (radius * (0.8 + amplitude * 0.3));
+      const y = centerY + Math.sin(angle) * (radius * (0.8 + amplitude * 0.3));
+      
+      if (i === 0) {
+        ctx.moveTo(x, y);
+      } else {
+        ctx.lineTo(x, y);
+      }
+    }
+    ctx.closePath();
+    ctx.stroke();
+    
+    ctx.restore();
+  }
+}
+
+// Add this line to your main animation loop:
+// updateAnimationWithAudio();
+
+// Initialize speech when voices are loaded
+if (window.speechSynthesis) {
+  if (speechSynthesis.onvoiceschanged !== undefined) {
+    speechSynthesis.onvoiceschanged = setupSpeech;
+  } else {
+    // For browsers that don't fire onvoiceschanged
+    setTimeout(setupSpeech, 1000);
+  }
+} else {
+  console.warn("Speech synthesis not supported in this browser");
+  // Create a fallback notification
+  const fallbackNote = document.createElement('div');
+  fallbackNote.textContent = "Speech synthesis not supported in this browser";
+  fallbackNote.style.position = 'fixed';
+  fallbackNote.style.bottom = '20px';
+  fallbackNote.style.left = '20px';
+  fallbackNote.style.color = '#ff5555';
+  fallbackNote.style.fontFamily = 'monospace';
+  document.body.appendChild(fallbackNote);
+}
+
+// ======== IMPLEMENTATION INSTRUCTIONS ========
+// 1. Add all the code above to your existing script
+// 2. Find your main animate() function
+// 3. Just before the requestAnimationFrame(animate) line, add:
+//    updateAnimationWithAudio();
+// 4. This will integrate the audio visualization with your animation
+    </script>
+  </body>
+</html>
