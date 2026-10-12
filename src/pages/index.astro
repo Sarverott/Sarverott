@@ -1,0 +1,49 @@
+---
+import {createHash} from 'node:crypto'
+
+function gravatarIcon(email: string){
+	let hashedmail = createHash("sha256")
+	hashedmail.update(email)
+	return `https://gravatar.com/avatar/${hashedmail.digest('hex')}.ico?s=128`
+}
+
+function gravatarAvatar(email: string){
+	let hashedmail = createHash("sha256")
+	hashedmail.update(email)
+	return `https://gravatar.com/avatar/${hashedmail.digest('hex')}`
+}
+
+const EMAIL = 'sett@sarverott.com'
+
+const UPDATES_FEED={
+	title: "RSS feed of Sarverott",
+	url:"https://feed.sarverott.com/rss.xml",
+	mimetype: "application/rss+xml"
+}
+
+const WEBMANIFEST_URL = "/manifest.json"
+
+const SITEMAP_LINK = {
+	title: "map of Sarverott's domain",
+	url: "/sitemap.xml"
+}
+
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href={gravatarIcon(EMAIL)} />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="manifest" href={WEBMANIFEST_URL} crossorigin="anonymous" />
+		<link rel="sitemap" type="application/xml" title={SITEMAP_LINK.title} href={SITEMAP_LINK.url} crossorigin="anonymous" />
+		<link rel="alternate" title={UPDATES_FEED.title} href={UPDATES_FEED.url} type={UPDATES_FEED.mimetype} />
+		<title>Sett Sarverott</title>
+	</head>
+	<body>
+		
+		<img src={gravatarAvatar(EMAIL)}/>
+
+	</body>
+</html>

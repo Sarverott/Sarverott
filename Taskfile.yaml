@@ -10,6 +10,10 @@ tasks:
     cmds:
       - task --list
 
+  web-status:
+    cmds:
+      - astro dev status
+
 #  gists:
 #    desc: Build a JSON catalog of locally cloned gists.
 #    cmds:

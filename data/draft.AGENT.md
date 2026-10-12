@@ -1,4 +1,4 @@
-# AI Context for Sett Sarverott, the Architect
+<!-- # AI Context for Sett Sarverott, the Architect
 
 ## Profile
 - Name: Sett Sarverott
@@ -39,4 +39,4 @@
 > - Give concise responses. 
 > - Use a dry sense of humor where appropriate.
 
-
+ -->

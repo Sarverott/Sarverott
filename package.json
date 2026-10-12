@@ -1,0 +1,21 @@
+{
+  "name": "sett.sarverott.com",
+  "private": true,
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^7.3.8"
+  },
+  "author": {
+    "name": "Sett Sarverott",
+    "email": "sett@sarverott.com",
+    "url": "https://sett.sarverott.com"
+  }
+}
