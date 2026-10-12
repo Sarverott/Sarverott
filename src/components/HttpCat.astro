@@ -1,0 +1,7 @@
+---
+const { code } = Astro.props;
+const imageURL = `https://http.cat/${code}.jpg`
+---
+<div>
+    <img src={imageURL} />
+</div>
