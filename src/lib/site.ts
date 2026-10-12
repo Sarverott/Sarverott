@@ -39,3 +39,5 @@ export const FOOTER_REFS: TitledLink[] = [
 	})),
 	{ title: UPDATES_FEED.title, url: UPDATES_FEED.url },
 ];
+
+// NOTE: add here functions to generate these mapping of routings, outputs object that can be later parsed to json string, openapi standard, xml sitemap format, mermaid or else - each formater wil .
