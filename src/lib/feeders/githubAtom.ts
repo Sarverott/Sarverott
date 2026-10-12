@@ -1,6 +1,6 @@
 
-import {UpdatesFeedHandler, atomChannel} from "./baseFeedHandlling"
+// import {UpdatesFeedHandler, atomChannel} from "./baseFeedHandlling"
 
-class GithubApiHandler extends UpdatesFeedHandler implements atomChannel{
+// class GithubApiHandler extends UpdatesFeedHandler implements atomChannel{
 
-}
+// }

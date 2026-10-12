@@ -1,25 +1,30 @@
-<script setup lang="ts">
-import { onMounted } from "vue";
+<script setup>
+    const props = defineProps("config");
 
-// this is mentioned in error page and has json config created in data dir
-const props = defineProps<{ config: object }>();
-
-onMounted(async () => {
-	// particles.js touches `window` on import and registers global particlesJS
-	await import("particles.js");
-	const { particlesJS } = window as unknown as {
-		particlesJS: (id: string, config: object) => void;
-	};
-	particlesJS("particles-background", props.config);
-});
+    import { onMounted } from "vue";
+    import Hydra from 'hydra-synth'
+    
+    const hydraBG = {}; 
+    
+    onMounted(async ()=>{
+        hydraBG.onload = ()=>{
+            this.root.osc(4, 0.1, 1.2).out()
+        }
+        hydraBG.domHook = "#particles-background"
+        hydraBG.config = { 
+            canvas: document.querySelector(hydraBG.domHook), 
+            detectAudio: false, 
+            makeGlobal: false
+        }
+        hydraBG.root = new Hydra(hydraBG.config).synth
+        hydraBG.onload()
+    })
 </script>
-
 <template>
-  <div id="particles-background"></div>
+    <canvas id="particles-background"></canvas>
 </template>
-
 <style scoped>
-#particles-background {
+    #particles-background {
   position: fixed;
   inset: 0;
   z-index: -1;

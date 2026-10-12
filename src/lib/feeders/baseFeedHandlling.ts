@@ -1,25 +1,25 @@
 
 
-class UpdatesFeedHandler{ 
+// class UpdatesFeedHandler{ 
 
-}
+// }
 
-interface rssChannel{
+// interface rssChannel{
 
-}
+// }
 
-interface atomChannel{
+// interface atomChannel{
     
-}
+// }
 
-interface openapiClient{
+// interface openapiClient{
     
-}
+// }
 
-interface githubApiClient{
+// interface githubApiClient{
     
-}
+// }
 
-interface githubApiClient{
+// interface githubApiClient{
     
-}
+// }
