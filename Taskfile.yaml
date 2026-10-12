@@ -1,0 +1,16 @@
+version: '3'
+
+#vars:
+#  WORKSPACE_DIR: '{{.TASKFILE_DIR}}/../..'
+#  GISTS_DIR: '{{.WORKSPACE_DIR}}/my-gists'
+#  GISTS_OUTPUT: '{{.TASKFILE_DIR}}/data/gists.json'
+
+tasks:
+  default:
+    cmds:
+      - task --list
+
+#  gists:
+#    desc: Build a JSON catalog of locally cloned gists.
+#    cmds:
+#      - python3 '{{.TASKFILE_DIR}}/scripts/gists_catalog.py' --gists-dir '{{.GISTS_DIR}}' --output '{{.GISTS_OUTPUT}}'
