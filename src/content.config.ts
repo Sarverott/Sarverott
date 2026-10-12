@@ -18,7 +18,27 @@ const linksCollection = (path: string) =>
     schema: linkSchema,
   });
 
+// data/httpstatus.csv - rows of "$CODE | $TITLE | $MESSAGES", first row is header
+const parseStatusCsv = (text: string) =>
+  text
+    .split("\n")
+    .slice(1)
+    .filter((row) => row.trim())
+    .map((row) => {
+      const [id, title, ...message] = row.split("|").map((cell) => cell.trim());
+      return { id, title, message: message.join(" | ") };
+    });
+
+const httpStatusCollection = defineCollection({
+  loader: file("data/httpstatus.csv", { parser: parseStatusCsv }),
+  schema: z.object({
+    title: z.string(),
+    message: z.string(), // inline markdown
+  }),
+});
+
 export const collections = {
+  httpstatus: httpStatusCollection,
   socmed: linksCollection("data/urls.socmed.yml"),
   opsor: linksCollection("data/urls.opsor.yml"),
   procom: linksCollection("data/urls.procom.yml"),

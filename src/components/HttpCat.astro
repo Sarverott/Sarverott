@@ -1,7 +1,11 @@
 ---
+interface Props {
+  code: number;
+}
+
 const { code } = Astro.props;
 const imageURL = `https://http.cat/${code}.jpg`
 ---
 <div>
-    <img src={imageURL} />
+    <img src={imageURL} alt={`http cat ${code}`} />
 </div>
