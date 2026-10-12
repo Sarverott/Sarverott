@@ -1,0 +1,25 @@
+---
+/*
+### patterns
+- /goto/?link={item.label} -> /goto/{item.label}/
+- /goto/?link={item.label}&from={item.group} -> /goto/{item.group}/{item.label}/
+- /goto/ , /goto/?from={item.group} -> error 400
+
+Query form is only rewritten to path form here (static site - query string
+exists only in browser), so resolving and 404 stay in ./[...path].astro
+*/
+import ErrorPage from "../../components/ErrorPage.astro";
+---
+
+<ErrorPage status={400}>
+	<script is:inline slot="head" define:vars={{ base: import.meta.env.BASE_URL }}>
+		const query = new URLSearchParams(location.search);
+		const link = query.get("link");
+		const from = query.get("from");
+		if (link) {
+			const path = [from, link].filter(Boolean).map(encodeURIComponent).join("/");
+			location.replace(`${base.replace(/\/$/, "")}/goto/${path}/`);
+		}
+	</script>
+	<p>missing <code>?link=</code> parameter</p>
+</ErrorPage>

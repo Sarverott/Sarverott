@@ -1,0 +1,38 @@
+---
+/*
+### example item in group (data/urls.$GROUP.yml)
+```yaml
+$LABEL:
+  title: "example item"
+  url: http://example.cc
+  description: "item's info about for example this one"
+```
+
+### patterns
+- /goto/{item.label} -> redirect(item.url)                --- any group
+- /goto/{item.group}/{item.label} -> redirect(item.url)   --- only in that group
+- /goto/{group} -> error 403                              --- unless label named like that exists
+- /goto/* -> error 404                                    --- shared src/pages/404.astro
+- /goto/?link=... -> see ./index.astro
+*/
+import type { GetStaticPaths } from "astro";
+import ErrorPage from "../../components/ErrorPage.astro";
+import RedirectPage from "../../components/RedirectPage.astro";
+import { GROUPS, getGotoLinks, type GotoLink } from "../../lib/goto";
+
+export const getStaticPaths = (async () => {
+  const links = await getGotoLinks();
+  const paths = new Map<string, { link?: GotoLink }>();
+
+  // later entries override earlier ones: group < group/label < label
+  for (const group of GROUPS) paths.set(group, {});
+  for (const link of links) paths.set(`${link.group}/${link.label}`, { link });
+  for (const link of links.toReversed()) paths.set(link.label, { link });
+
+  return [...paths].map(([path, props]) => ({ params: { path }, props }));
+}) satisfies GetStaticPaths;
+
+const { link } = Astro.props;
+---
+
+{link ? <RedirectPage link={link} /> : <ErrorPage status={403} />}

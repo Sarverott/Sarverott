@@ -4,10 +4,12 @@
 #   - 
 # discord:
 #   - 
-insta: 
-  - https://www.instagram.com/sarverott/
-x:
-  - https://x.com/sarverott
+instagram: 
+  title: "ig:SARVEROTT"
+  url: https://www.instagram.com/sarverott/
+  description: "photos related to projects"
+x: 
+  url: https://x.com/sarverott
 # youtube:
 #   - 
 # tiktok:

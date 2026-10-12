@@ -1,0 +1,30 @@
+---
+interface Props {
+  status: 400 | 403 | 404;
+}
+
+const MESSAGES = {
+  400: "Bad request",
+  403: "Forbidden",
+  404: "Not found",
+};
+
+const { status } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="noindex" />
+		<title>{status} {MESSAGES[status]}</title>
+		<slot name="head" />
+	</head>
+	<body>
+		<h1>{status}</h1>
+		<h3>{MESSAGES[status]}</h3>
+		<slot />
+		<a href={import.meta.env.BASE_URL}>sett.sarverott.com</a>
+	</body>
+</html>

@@ -11,7 +11,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.3.8"
+    "astro": "^7.3.8",
+    "yaml": "^2.9.1"
   },
   "author": {
     "name": "Sett Sarverott",

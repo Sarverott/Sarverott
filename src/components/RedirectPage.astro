@@ -1,0 +1,27 @@
+---
+import type { GotoLink } from "../lib/goto";
+
+interface Props {
+  link: GotoLink;
+}
+
+const { link } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="noindex" />
+		<meta http-equiv="refresh" content={`0;url=${link.url}`} />
+		<link rel="canonical" href={link.url} />
+		<meta name="description" content={link.description ?? link.title} />
+		<title>{link.title}</title>
+	</head>
+	<body>
+		<h1>{link.title}</h1>
+		{link.description && <p>{link.description}</p>}
+		<a href={link.url}>{link.url}</a>
+	</body>
+</html>
