@@ -1,7 +1,7 @@
 // docs: https://docs.astro.build/en/recipes/rss/
 import rss from "@astrojs/rss";
 import config from "../../data/basic.config.json";
-import { getUpdates } from "../lib/updatesParser";
+import { getUpdates } from "../lib/updates";
 
 export async function GET(context) {
 	return rss({

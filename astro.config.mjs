@@ -7,4 +7,8 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
 	site: "https://sett.sarverott.com",
 	integrations: [vue()],
+	vite: {
+		// hydra-synth expects node's `global` to exist in browser
+		define: { global: "globalThis" },
+	},
 });

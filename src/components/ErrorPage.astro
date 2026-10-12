@@ -2,13 +2,12 @@
 import "bulma/css/bulma.min.css";
 import { getEntry } from "astro:content";
 import { marked } from "marked";
-import particlesConfig from "../../data/bg-particles.error.json";
 import { GROUPS, getGotoLinks } from "../lib/goto";
 import { FOOTER_REFS } from "../lib/site";
 import FooterRefs from "./layouts/error/FooterRefs.vue";
 import HeaderNav from "./layouts/error/HeaderNav.vue";
 import MainSpace from "./layouts/error/MainSpace.vue";
-import ParticleJsBackground from "./layouts/ParticleJsBackground.vue";
+import HydraBackground from "./layouts/HydraBackground.vue";
 
 interface Props {
 	status: number; // has to be listed in data/httpstatus.csv
@@ -39,7 +38,7 @@ const groups = GROUPS.map((group) => ({
 		<slot name="head" />
 	</head>
 	<body>
-		<ParticleJsBackground client:only="vue" config={particlesConfig} />
+		<HydraBackground client:only="vue" />
 		<HeaderNav
 			domain={Astro.url.host}
 			status={status}
@@ -47,7 +46,16 @@ const groups = GROUPS.map((group) => ({
 			groups={groups}
 		/>
 		<MainSpace status={status} title={title}>
-			<p set:html={marked.parseInline(message)} />
+			<section class="hero is-danger">
+				<div class="hero-body">
+					<p class="title" set:html={marked.parseInline(message)}  />
+					<p class="subtitle"> 
+						<mark>
+							UNIXUSAT={Date.now()}
+						</mark> 
+					</p>
+				</div>
+			</section>
 			<slot />
 		</MainSpace>
 		<FooterRefs items={FOOTER_REFS} />

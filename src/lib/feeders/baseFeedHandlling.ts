@@ -1,6 +1,4 @@
-
-
-// class UpdatesFeedHandler{ 
+// class UpdatesFeedHandler{
 
 // }
 
@@ -9,17 +7,17 @@
 // }
 
 // interface atomChannel{
-    
+
 // }
 
 // interface openapiClient{
-    
+
 // }
 
 // interface githubApiClient{
-    
+
 // }
 
 // interface githubApiClient{
-    
+
 // }
