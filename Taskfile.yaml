@@ -9,10 +9,7 @@ tasks:
   default:
     cmds:
       - task --list
-
-  web-status:
-    cmds:
-      - astro dev status
+      - npm start
 
 #  gists:
 #    desc: Build a JSON catalog of locally cloned gists.
