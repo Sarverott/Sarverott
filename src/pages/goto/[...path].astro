@@ -18,18 +18,18 @@ $LABEL:
 import type { GetStaticPaths } from "astro";
 import ErrorPage from "../../components/ErrorPage.astro";
 import RedirectPage from "../../components/RedirectPage.astro";
-import { GROUPS, getGotoLinks, type GotoLink } from "../../lib/goto";
+import { type GotoLink, GROUPS, getGotoLinks } from "../../lib/goto";
 
 export const getStaticPaths = (async () => {
-  const links = await getGotoLinks();
-  const paths = new Map<string, { link?: GotoLink }>();
+	const links = await getGotoLinks();
+	const paths = new Map<string, { link?: GotoLink }>();
 
-  // later entries override earlier ones: group < group/label < label
-  for (const group of GROUPS) paths.set(group, {});
-  for (const link of links) paths.set(`${link.group}/${link.label}`, { link });
-  for (const link of links.toReversed()) paths.set(link.label, { link });
+	// later entries override earlier ones: group < group/label < label
+	for (const group of GROUPS) paths.set(group, {});
+	for (const link of links) paths.set(`${link.group}/${link.label}`, { link });
+	for (const link of links.toReversed()) paths.set(link.label, { link });
 
-  return [...paths].map(([path, props]) => ({ params: { path }, props }));
+	return [...paths].map(([path, props]) => ({ params: { path }, props }));
 }) satisfies GetStaticPaths;
 
 const { link } = Astro.props;

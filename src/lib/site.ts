@@ -1,0 +1,41 @@
+import { createHash } from "node:crypto";
+import config from "../../data/basic.config.json";
+
+const gravatarHash = (email: string) =>
+	createHash("sha256").update(email).digest("hex");
+
+export const gravatarIcon = (email: string) =>
+	`https://gravatar.com/avatar/${gravatarHash(email)}.ico?s=128`;
+
+export const gravatarAvatar = (email: string) =>
+	`https://gravatar.com/avatar/${gravatarHash(email)}`;
+
+export const NAME = "Sett Sarverott A.A.B.";
+export const EMAIL = config.emails[0];
+
+export const UPDATES_FEED = {
+	title: config.rss.title,
+	url: config.rss.output,
+	mimetype: config.rss.mimetype,
+};
+
+export const WEBMANIFEST_URL = "/manifest.json";
+
+export const SITEMAP_LINK = {
+	title: "map of Sarverott's domain",
+	url: "/sitemap.xml",
+};
+
+export interface TitledLink {
+	title: string;
+	url: string;
+}
+
+export const FOOTER_REFS: TitledLink[] = [
+	{ title: EMAIL, url: `mailto:${EMAIL}` },
+	...config.passports.map((url) => ({
+		title: url.replace(/^https?:\/\//, ""),
+		url,
+	})),
+	{ title: UPDATES_FEED.title, url: UPDATES_FEED.url },
+];

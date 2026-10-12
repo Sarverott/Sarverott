@@ -1,7 +1,8 @@
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue";
+
 // NOTE: xterm implementation, at first basic example of frontend PoW
-const count = ref(0)
+const count = ref(0);
 </script>
 
 <template>

@@ -11,6 +11,38 @@ tasks:
       - task --list
       - npm start
 
+  dev:
+    desc: Run development server with live reload.
+    cmds:
+      - npm run dev
+
+  build:
+    desc: Build static site into dist.
+    cmds:
+      - npm run build
+
+  preview:
+    desc: Build static site and serve it like production does.
+    deps: [build]
+    cmds:
+      - npm run preview
+
+  check:
+    desc: Lint and check formatting with biome, nothing gets changed.
+    cmds:
+      - npm run check
+
+  format:
+    desc: Apply safe biome fixes and formatting.
+    cmds:
+      - npm run format
+
+  verify:
+    desc: Everything that has to pass before push - biome check, then build.
+    cmds:
+      - task: check
+      - task: build
+
 #  gists:
 #    desc: Build a JSON catalog of locally cloned gists.
 #    cmds:

@@ -8,10 +8,13 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check": "biome check",
+    "format": "biome check --write"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.19",
+    "@astrojs/vue": "^7.0.3",
     "@xterm/xterm": "^6.0.0",
     "astro": "^7.3.8",
     "bulma": "^1.0.4",

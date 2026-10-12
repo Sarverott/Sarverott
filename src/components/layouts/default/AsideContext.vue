@@ -1,9 +1,20 @@
-<script setup>
-import { ref } from 'vue'
+<script setup lang="ts">
+import type { GotoLink } from "../../../lib/goto";
+import AsideCard from "../AsideCard.vue";
+import AsidePanel from "../AsidePanel.vue";
+
 // NOTE: bulma card on top, bulma panel on bottom
-const count = ref(0)
+defineProps<{
+	avatar: string;
+	name: string;
+	email: string;
+	links: GotoLink[];
+}>();
 </script>
 
 <template>
-  <button @click="count++">You clicked me {{ count }} times.</button>
+  <aside class="section">
+    <AsideCard class="block" :avatar="avatar" :name="name" :email="email" />
+    <AsidePanel heading="goto" :links="links" />
+  </aside>
 </template>

@@ -1,9 +1,14 @@
-<script setup>
-import { ref } from 'vue'
+<script setup lang="ts">
+import type { TitledLink } from "../../lib/site";
+
 // NOTE: this will list positions with UL and LI titled links display espessialy as footer content
-const count = ref(0)
+defineProps<{ items: TitledLink[] }>();
 </script>
 
 <template>
-  <button @click="count++">You clicked me {{ count }} times.</button>
+  <ul>
+    <li v-for="item in items" :key="item.url">
+      <a :href="item.url">{{ item.title }}</a>
+    </li>
+  </ul>
 </template>

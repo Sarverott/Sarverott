@@ -1,3 +1,10 @@
 ---
 // NOTE: status api live data or state at now of for example github followers
+import DefaultViewPage from "../../components/DefaultViewPage.astro";
+import GithubStatus from "../../components/layouts/GithubStatus.vue";
 ---
+
+<DefaultViewPage title="setternet status">
+	<h2>github</h2>
+	<GithubStatus client:load user="Sarverott" />
+</DefaultViewPage>

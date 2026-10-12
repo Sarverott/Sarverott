@@ -1,18 +1,32 @@
 ---
+import "bulma/css/bulma.min.css";
 import { getEntry } from "astro:content";
 import { marked } from "marked";
-import HttpCat from "./layouts/error/HttpCat.astro";
+import particlesConfig from "../../data/bg-particles.error.json";
+import { GROUPS, getGotoLinks } from "../lib/goto";
+import { FOOTER_REFS } from "../lib/site";
+import FooterRefs from "./layouts/error/FooterRefs.vue";
+import HeaderNav from "./layouts/error/HeaderNav.vue";
+import MainSpace from "./layouts/error/MainSpace.vue";
+import ParticleJsBackground from "./layouts/ParticleJsBackground.vue";
 
 interface Props {
-  status: number; // has to be listed in data/httpstatus.csv
+	status: number; // has to be listed in data/httpstatus.csv
 }
 
 const { status } = Astro.props;
 
 const entry = await getEntry("httpstatus", String(status));
-if (!entry) throw new Error(`status ${status} is missing in data/httpstatus.csv`);
+if (!entry)
+	throw new Error(`status ${status} is missing in data/httpstatus.csv`);
 
 const { title, message } = entry.data;
+
+const links = await getGotoLinks();
+const groups = GROUPS.map((group) => ({
+	group,
+	links: links.filter((link) => link.group === group),
+})).filter((group) => group.links.length);
 ---
 
 <!doctype html>
@@ -25,14 +39,17 @@ const { title, message } = entry.data;
 		<slot name="head" />
 	</head>
 	<body>
-		<div> <!-- particles.js background here, config in bg-particles.error.json -->
-			
-		</div>
-		<h1>{status}</h1>
-		<h3>{title}</h3>
-		<HttpCat code={status} />
-		<p set:html={marked.parseInline(message)} />
-		<slot />
-		<a href={import.meta.env.BASE_URL}>sett.sarverott.com</a>
+		<ParticleJsBackground client:only="vue" config={particlesConfig} />
+		<HeaderNav
+			domain={Astro.url.host}
+			status={status}
+			socmed={links.filter((link) => link.group === "socmed")}
+			groups={groups}
+		/>
+		<MainSpace status={status} title={title}>
+			<p set:html={marked.parseInline(message)} />
+			<slot />
+		</MainSpace>
+		<FooterRefs items={FOOTER_REFS} />
 	</body>
 </html>

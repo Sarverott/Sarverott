@@ -1,9 +1,10 @@
 // @ts-check
-//import {emails} from './data/basic.config.json' // ...???
 
-import { defineConfig } from 'astro/config';
+import vue from "@astrojs/vue";
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-    
+	site: "https://sett.sarverott.com",
+	integrations: [vue()],
 });

@@ -1,9 +1,22 @@
-<script setup>
-import { ref } from 'vue'
+<script setup lang="ts">
+import type { TitledLink } from "../../../lib/site";
+import BottomReferingList from "../BottomReferingList.vue";
+
 // NOTE: basic bulma footer for now
-const count = ref(0)
+defineProps<{ items: TitledLink[] }>();
 </script>
 
 <template>
-  <button @click="count++">You clicked me {{ count }} times.</button>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <BottomReferingList :items="items" />
+    </div>
+  </footer>
 </template>
+
+<style scoped>
+.content :deep(ul) {
+  list-style: none;
+  margin: 0;
+}
+</style>

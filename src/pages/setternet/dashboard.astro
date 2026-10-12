@@ -1,3 +1,15 @@
 ---
 // NOTE: homepage buttons to quick switching around
+import DefaultViewPage from "../../components/DefaultViewPage.astro";
+import { BASE } from "../../lib/base";
+
+const PLACES = ["", "setternet", "setternet/shell", "setternet/status"];
 ---
+
+<DefaultViewPage title="setternet dashboard">
+	<div class="buttons are-large">
+		{PLACES.map((place) => (
+			<a class="button" href={`${BASE}/${place}`}>/{place}</a>
+		))}
+	</div>
+</DefaultViewPage>

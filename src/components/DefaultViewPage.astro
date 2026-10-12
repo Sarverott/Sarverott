@@ -1,38 +1,46 @@
 ---
-import {createHash} from 'node:crypto'
-import config from '../../data/basic.config.json'
+import "bulma/css/bulma.min.css";
+import { BASE } from "../lib/base";
+import { getGotoLinks } from "../lib/goto";
+import {
+	EMAIL,
+	FOOTER_REFS,
+	gravatarAvatar,
+	gravatarIcon,
+	NAME,
+	SITEMAP_LINK,
+	UPDATES_FEED,
+	WEBMANIFEST_URL,
+} from "../lib/site";
+import AsideContext from "./layouts/default/AsideContext.vue";
+import FooterRefs from "./layouts/default/FooterRefs.vue";
+import HeaderNav from "./layouts/default/HeaderNav.vue";
+import MainSpace from "./layouts/default/MainSpace.vue";
 
-
-
-function gravatarIcon(email: string){
-	let hashedmail = createHash("sha256")
-	hashedmail.update(email)
-	return `https://gravatar.com/avatar/${hashedmail.digest('hex')}.ico?s=128`
+interface Props {
+	title?: string;
 }
 
-function gravatarAvatar(email: string){
-	let hashedmail = createHash("sha256")
-	hashedmail.update(email)
-	return `https://gravatar.com/avatar/${hashedmail.digest('hex')}`
-}
+const { title = "Sett.Sarverott.com" } = Astro.props;
 
-const EMAIL = config.emails[0]
+const links = await getGotoLinks();
+const socmed = links.filter((link) => link.group === "socmed");
 
-const UPDATES_FEED={
-	title: config.rss.title,
-	url: config.rss.output,
-	mimetype: config.rss.mimetype
-}
-
-const WEBMANIFEST_URL = "/manifest.json"
-
-const SITEMAP_LINK = {
-	title: "map of Sarverott's domain",
-	url: "/sitemap.xml"
-}
-
+// one crumb per url segment, each linked to its own level
+const segments = Astro.url.pathname
+	.slice(BASE.length)
+	.split("/")
+	.filter(Boolean);
+const crumbs = [
+	{ title: Astro.url.host, url: `${BASE}/` },
+	...segments.map((segment, index) => ({
+		title: segment,
+		url: `${BASE}/${segments.slice(0, index + 1).join("/")}/`,
+	})),
+];
 ---
 
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -42,13 +50,18 @@ const SITEMAP_LINK = {
 		<link rel="manifest" href={WEBMANIFEST_URL} crossorigin="anonymous" />
 		<link rel="sitemap" type="application/xml" title={SITEMAP_LINK.title} href={SITEMAP_LINK.url} crossorigin="anonymous" />
 		<link rel="alternate" title={UPDATES_FEED.title} href={UPDATES_FEED.url} type={UPDATES_FEED.mimetype} />
-		<title>Sett.Sarverott.com</title>
+		<title>{title}</title>
 	</head>
 	<body>
-		<h1>{Astro.url}</h1>
-		<br />
-		<img src={gravatarAvatar(EMAIL)} />
-		<br />
-		<h3>{EMAIL}</h3>
+		<HeaderNav avatar={gravatarAvatar(EMAIL)} name={NAME} socmed={socmed} crumbs={crumbs} />
+		<div class="columns">
+			<div class="column is-three-quarters">
+				<MainSpace><slot /></MainSpace>
+			</div>
+			<div class="column">
+				<AsideContext avatar={gravatarAvatar(EMAIL)} name={NAME} email={EMAIL} links={links} />
+			</div>
+		</div>
+		<FooterRefs items={FOOTER_REFS} />
 	</body>
 </html>

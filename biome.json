@@ -23,6 +23,25 @@
 			"quoteStyle": "double"
 		}
 	},
+	"overrides": [
+		{
+			"includes": ["**/*.astro", "**/*.vue"],
+			"linter": {
+				"rules": {
+					"correctness": {
+						"noUnusedImports": "off",
+						"noUnusedVariables": "off"
+					}
+				}
+			}
+		},
+		{
+			"includes": ["package.json"],
+			"formatter": {
+				"indentStyle": "space"
+			}
+		}
+	],
 	"assist": {
 		"enabled": true,
 		"actions": {
