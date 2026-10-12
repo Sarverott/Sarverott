@@ -1,22 +1,95 @@
-# facebook:
-#   - 
+facebook:
+  # title: "activity on FaceBook"
+  url: https://www.instagram.com/sarverott/
+  description: "casual notifications"
 # telegram:
 #   - 
 # discord:
 #   - 
 instagram: 
-  title: "ig:SARVEROTT"
+  # title: "activity on Instagram"
   url: https://www.instagram.com/sarverott/
   description: "photos related to projects"
 x: 
+  # title: "activity on X"
   url: https://x.com/sarverott
-# youtube:
-#   - 
+  description: "random thoughts throwbox"
+youtube:
+  # title: "activity on Youtube"
+  url: https://www.youtube.com/@sarverott
+
+  description: "some of videos been made so why not to upload them"
 # tiktok:
 #   - 
 # linkedin:
 #   - 
-# soundcloud:
-#   - 
-# tumblr:
-#   - 
+soundcloud:
+  # title: "activity on Soundcloud"
+  url: https://soundcloud.com/sarverott
+  description: "music of technomancer's soul"
+tumblr:
+  # title: "activity on Tumblr"
+  url: https://www.tumblr.com/sarverott
+
+  description: "art archives and story gallery"
+github:
+  # title: "activity on GitHub"
+  url: https://github.com/sarverott
+  description: "main area of work"
+gitlab:
+  # title: "activity on Gitlab"
+  url: https://gitlab.com/sarverott
+  description: "sideway to publish things"
+bitbucket:
+  # title: "activity on BitBucket"
+  url: https://bitbucket.com/sarverott
+  description: "commercial products there"
+bluesky:
+  # title: "activity on BlueSky"
+  url: https://sarverott.bsky.social/
+  description: "random thoughts throwbox"
+huggingface:
+  url: https://huggingface.co/sarverott
+ollama:
+  url: https://ollama.com/sarverott
+
+pypi:
+  url: https://pypi.org/user/sarverott/
+
+packagist:
+  url: https://packagist.org/users/Sarverott/
+
+docker:
+  url: https://hub.docker.com/u/sarverott/
+npm:
+  url: https://www.npmjs.com/~sarverott
+
+mozilla:
+  url: https://addons.mozilla.org/pl/firefox/user/20029966/
+googledev:
+  url: https://g.dev/sarverott
+
+gitea:
+  url: https://gitea.com/sarverott
+
+wikipedia:
+  url: https://pl.wikipedia.org/wiki/Wikipedysta:Sarverott
+
+mediawiki:
+  url: https://www.mediawiki.org/wiki/User:Sarverott
+
+virustotal:
+  url: https://www.virustotal.com/user/sarverott
+
+tryhackme:
+  url: https://tryhackme.com/p/sarverott
+
+matrix:
+  url: https://matrix.to/#/@sarverott:gitter.im
+
+mastodon:
+  url: https://mastodon.social/@sarverott
+
+internetarchieve:
+  url: https://archive.org/details/@sarverott
+

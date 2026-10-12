@@ -7,13 +7,21 @@ defineProps<{ links: GotoLink[] }>();
 </script>
 
 <template>
-  <div class="buttons">
+  <div class="buttons socmed-icons-box">
     <SocMedButtonIcon
       v-for="link in links"
       :key="link.label"
       :label="link.label"
       :url="link.url"
       :title="link.title"
+      :description="link.description"
     />
   </div>
 </template>
+<style>
+.socmed-icons-box{
+  position: fixed;
+  top: 5px;
+  right: 5px;
+}
+</style>

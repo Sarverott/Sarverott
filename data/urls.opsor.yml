@@ -17,7 +17,7 @@
 # docker:
 #   - 
 # mozilla:
-#   - 
+#   - https://addons.mozilla.org/pl/firefox/user/20029966/
 # gdev:
 #   - 
 # chrome:

@@ -13,7 +13,7 @@ defineProps<{
 </script>
 
 <template>
-  <header>
+  <header class="theme-dark">
     <section class="hero is-small">
       <div class="hero-body">
         <div class="level">
@@ -45,6 +45,7 @@ defineProps<{
                 :key="link.label"
                 class="navbar-item"
                 :href="`${BASE}/goto/${group}/${link.label}/`"
+                :title="link.description"
               >
                 {{ link.title }}
               </a>
@@ -55,3 +56,14 @@ defineProps<{
     </nav>
   </header>
 </template>
+
+<style scoped>
+/* shading over background animation - dark, but animation stays visible */
+header {
+  background-color: rgb(0 0 0 / 70%);
+}
+
+.navbar {
+  background-color: transparent;
+}
+</style>
