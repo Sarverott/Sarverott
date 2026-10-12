@@ -2,6 +2,7 @@ import { defineCollection } from 'astro:content';
 import { file } from 'astro/loaders';
 import { z } from 'astro/zod';
 import { parse as parseYaml } from 'yaml';
+//import {emails} from './data/basic.config.json' // ...???
 
 // one entry of data/urls.$GROUP.yml - the yaml key ($LABEL) becomes entry id
 const linkSchema = z.object({

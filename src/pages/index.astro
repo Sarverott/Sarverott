@@ -1,5 +1,8 @@
 ---
 import {createHash} from 'node:crypto'
+//import {emails} from './data/basic.config.json' // ...???
+
+
 
 function gravatarIcon(email: string){
 	let hashedmail = createHash("sha256")
@@ -13,11 +16,11 @@ function gravatarAvatar(email: string){
 	return `https://gravatar.com/avatar/${hashedmail.digest('hex')}`
 }
 
-const EMAIL = 'sett@sarverott.com'
+const EMAIL = "sett@sarverott.com"
 
 const UPDATES_FEED={
-	title: "RSS feed of Sarverott",
-	url:"https://feed.sarverott.com/rss.xml",
+	title: "sarverott - unified RSS of all actions",
+	url:"https://sett.sarverott.com/rss.xml",
 	mimetype: "application/rss+xml"
 }
 

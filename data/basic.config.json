@@ -1,0 +1,22 @@
+{
+    "emails":[
+        "sett@sarverott.com",
+        "sarverott@gmail.com"
+    ],
+    "passports":[
+        "https://orcid.org/0009-0006-4604-6540"
+    ],
+    "rss":{
+        "title":"aggregated RSS feed of activity by Sarverott",
+        "mimetype":"application/rss+xml",
+        "inputFeeds":[
+            {}
+        ],
+        "output":"https://sett.sarverott.com/rss.xml",
+        "metadata":{},
+        "fullRssListing":"https://sett.sarverott.com/all-feeds.opml"
+    },
+    "webmanifest":{},
+    "robots":{},
+    "sitemap":{}
+}
