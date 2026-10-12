@@ -1,14 +1,14 @@
 // docs: https://docs.astro.build/en/recipes/rss/
 import rss from "@astrojs/rss";
 import config from "../../data/basic.config.json";
+import { getUpdates } from "../lib/updatesParser";
 
-export function GET(context) {
+export async function GET(context) {
 	return rss({
 		title: config.rss.title,
 		description: config.rss.title,
 		site: context.site,
-		// TODO: fill from config.rss.inputFeeds once any feed is listed there
-		items: [],
+		items: await getUpdates(),
 		customData: `<language>en-us</language>`,
 	});
 }

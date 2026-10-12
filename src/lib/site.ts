@@ -33,7 +33,7 @@ export interface TitledLink {
 
 export const FOOTER_REFS: TitledLink[] = [
 	{ title: EMAIL, url: `mailto:${EMAIL}` },
-	...config.passports.map((url) => ({
+	...config.attestations.map((url) => ({
 		title: url.replace(/^https?:\/\//, ""),
 		url,
 	})),
@@ -41,3 +41,26 @@ export const FOOTER_REFS: TitledLink[] = [
 ];
 
 // NOTE: add here functions to generate these mapping of routings, outputs object that can be later parsed to json string, openapi standard, xml sitemap format, mermaid or else - each formater wil .
+export interface SitePage {
+	path: string;
+}
+
+const PAGE_SOURCES = import.meta.glob<string>("../pages/**/*.{astro,md}", {
+	query: "?raw",
+	import: "default",
+	eager: true,
+});
+
+// every static page that is not an error one (easter eggs with 200 included):
+// dynamic routes are skipped and error pages are recognized by using ErrorPage
+export function getSitePages(): SitePage[] {
+	return Object.entries(PAGE_SOURCES)
+		.filter(
+			([file, source]) => !file.includes("[") && !source.includes("ErrorPage"),
+		)
+		.map(([file]) =>
+			file.replace("../pages", "").replace(/(index)?\.(astro|md)$/, ""),
+		)
+		.map((path) => ({ path: path.endsWith("/") ? path : `${path}/` }))
+		.sort((a, b) => a.path.localeCompare(b.path));
+}

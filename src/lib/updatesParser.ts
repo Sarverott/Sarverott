@@ -1,5 +1,3 @@
-
-
 // DISCLAIMER: all of this will be moved to gitrecon responsibilities, for now use below listed rss feeds
 // DISCLAIMER: this rss will be working with preparsed json files to making it lighter while processing
 
@@ -53,3 +51,40 @@
 - google play... verified android apps... i don't know
 - chrome store... verified extensions status... i don't know
 */
+
+import config from "../../data/basic.config.json";
+import { type FeedItem, loadFeed } from "./parse";
+
+const UPDATES_LIMIT = 50;
+const FETCH_TIMEOUT = 15_000;
+
+// feed that does not answer is skipped with warning - it must not block build
+async function fetchFeed(url: string): Promise<FeedItem[]> {
+	try {
+		const response = await fetch(url, {
+			signal: AbortSignal.timeout(FETCH_TIMEOUT),
+		});
+		if (!response.ok) throw new Error(`http status ${response.status}`);
+		return loadFeed(await response.text(), url);
+	} catch (error) {
+		console.warn(`[updates] skipping ${url}: ${error}`);
+		return [];
+	}
+}
+
+async function loadUpdates(): Promise<FeedItem[]> {
+	const perFeed = await Promise.all(config.rss.inputs.map(fetchFeed));
+	return perFeed
+		.flat()
+		.sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime())
+		.slice(0, UPDATES_LIMIT);
+}
+
+// rss.xml and sitemap page share one fetching per build
+let updates: Promise<FeedItem[]> | undefined;
+
+// newest first, state from the moment of build
+export function getUpdates(): Promise<FeedItem[]> {
+	updates ??= loadUpdates();
+	return updates;
+}

@@ -1,28 +1,21 @@
 {
-    "metadata":{
-
-    },
-    "emails":[
-        "sett@sarverott.com",
-        "sarverott@gmail.com"
-    ],
-    "attestations":[
-        "https://orcid.org/0009-0006-4604-6540"
-    ],
-    "rss":{
-        "title":"aggregated RSS feed of activity by Sarverott",
-        "mimetype":"application/rss+xml",
-        "inputs":[
-            "https://github.com/sarverott.atom",
-            "https://sarverott.tumblr.com/rss",
-            "https://blog.sarverott.com/feeds/posts/default?alt=rss",
-            "https://packagist.org/feeds/vendor.sarverott.rss"
-        ],
-        "output":"https://sett.sarverott.com/rss.xml",
-        "metadata":{},
-        "fullRssListing":"https://sett.sarverott.com/all-feeds.opml"
-    },
-    "webmanifest":{},
-    "robots":{},
-    "sitemap":{}
+	"metadata": {},
+	"emails": ["sett@sarverott.com", "sarverott@gmail.com"],
+	"attestations": ["https://orcid.org/0009-0006-4604-6540"],
+	"rss": {
+		"title": "aggregated RSS feed of activity by Sarverott",
+		"mimetype": "application/rss+xml",
+		"inputs": [
+			"https://github.com/sarverott.atom",
+			"https://sarverott.tumblr.com/rss",
+			"https://blog.sarverott.com/feeds/posts/default?alt=rss",
+			"https://packagist.org/feeds/vendor.sarverott.rss"
+		],
+		"output": "https://sett.sarverott.com/rss.xml",
+		"metadata": {},
+		"fullRssListing": "https://sett.sarverott.com/all-feeds.opml"
+	},
+	"webmanifest": {},
+	"robots": {},
+	"sitemap": {}
 }

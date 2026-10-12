@@ -12,8 +12,8 @@ defineProps<{
 	crumbs: TitledLink[];
 }>();
 
-// only INDEX has a page behind it so far
-const NOT_READY = ["SITEMAP", "QUERY", "ACK_SYNC"];
+// no pages behind these so far
+const NOT_READY = ["QUERY", "ACK_SYNC"];
 </script>
 
 <template>
@@ -31,6 +31,7 @@ const NOT_READY = ["SITEMAP", "QUERY", "ACK_SYNC"];
     </div>
     <div class="buttons">
       <a class="button" :href="`${BASE}/`">INDEX</a>
+      <a class="button" :href="`${BASE}/sitemap/`">SITEMAP</a>
       <button v-for="label in NOT_READY" :key="label" class="button" title="not ready yet" disabled>
         {{ label }}
       </button>
