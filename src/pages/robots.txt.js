@@ -1,0 +1,1 @@
+// NOTE: does vue, vite or astro have some ready-to-use packages or plugins for robots.txt generation? propably yea, so as for allowed we can add all known sites from sitemap, and disallow "/index.php" for start. add also here adnotation about sitemap
