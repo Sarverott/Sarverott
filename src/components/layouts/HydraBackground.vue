@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Hydra from "hydra-synth";
 import { onBeforeUnmount, onMounted, ref } from "vue";
-import { backgroundAnimation } from "../../lib/backgroundAnimation";
+import { defaultSketch } from "../../lib/sketches";
 
 const canvas = ref<HTMLCanvasElement>();
 
@@ -16,7 +16,7 @@ onMounted(() => {
 		makeGlobal: false,
 	});
 
-	backgroundAnimation(synth);
+	defaultSketch(synth);
 
 	fitToWindow = () =>
 		synth.setResolution(window.innerWidth, window.innerHeight);
