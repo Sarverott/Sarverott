@@ -51,16 +51,33 @@ const PAGE_SOURCES = import.meta.glob<string>("../pages/**/*.{astro,md}", {
 	eager: true,
 });
 
-// every static page that is not an error one (easter eggs with 200 included):
-// dynamic routes are skipped and error pages are recognized by using ErrorPage
+const toPath = (file: string) => {
+	const path = file
+		.replace("../pages", "")
+		.replace(/(index)?\.(astro|md)$/, "");
+	return path.endsWith("/") ? path : `${path}/`;
+};
+
+// static routes only, and stubs that render nothing yet are not pages
+const STATIC_PAGES = Object.entries(PAGE_SOURCES)
+	.filter(
+		([file, source]) =>
+			!file.includes("[") && source.replace(/^---[\s\S]*?---/, "").trim(),
+	)
+	.map(([file, source]) => ({ path: toPath(file), source }))
+	.sort((a, b) => a.path.localeCompare(b.path));
+
+// every page that is not an error one (easter eggs with 200 included) -
+// error pages are recognized by using ErrorPage
 export function getSitePages(): SitePage[] {
-	return Object.entries(PAGE_SOURCES)
-		.filter(
-			([file, source]) => !file.includes("[") && !source.includes("ErrorPage"),
-		)
-		.map(([file]) =>
-			file.replace("../pages", "").replace(/(index)?\.(astro|md)$/, ""),
-		)
-		.map((path) => ({ path: path.endsWith("/") ? path : `${path}/` }))
-		.sort((a, b) => a.path.localeCompare(b.path));
+	return STATIC_PAGES.filter(({ source }) => !source.includes("ErrorPage")).map(
+		({ path }) => ({ path }),
+	);
+}
+
+// error pages answering with status 200 like /index.php/
+export function getEasterEggPages(): SitePage[] {
+	return STATIC_PAGES.filter(({ source }) =>
+		source.includes("<ErrorPage status={200}"),
+	).map(({ path }) => ({ path }));
 }

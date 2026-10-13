@@ -11,6 +11,7 @@ Longer reading, written by an agent for agents:
 - [`docs/agents/who-is-sett.md`](docs/agents/who-is-sett.md) — who you work with and what for
 - [`docs/agents/working-rhythm.md`](docs/agents/working-rhythm.md) — how a session actually goes
 - [`docs/agents/reflections-of-cleo.md`](docs/agents/reflections-of-cleo.md) — one agent's own view
+- [`docs/agents/ideas.md`](docs/agents/ideas.md) — concepts for what can be built next
 
 ## The owner
 
@@ -85,6 +86,9 @@ src/pages/             routes: goto/ redirects, sitemap, rss.xml, easter eggs
 - **Tabs** for indentation (Biome), except `package.json`.
 - **Short file names.** Sett will rename anything long.
 - **New dependencies** are fine when needed; name them in your report.
+- **One page map.** `getSitePages()` in `src/lib/site.ts` feeds the sitemap,
+  `robots.txt` and `llms.txt`. Error pages and pages that render nothing are
+  left out automatically; do not keep lists of paths by hand.
 - **Humour is part of the spec.** HTTP cats, easter eggs and the wording in
   `data/httpstatus.csv` are features, not noise.
 

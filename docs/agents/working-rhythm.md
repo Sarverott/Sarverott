@@ -39,6 +39,9 @@ The rules are in [`AGENTS.md`](../../AGENTS.md); this is the reasoning.
   `global is not defined` was right and in the wrong file.
 - **A renamed key.** `passports` became `attestations` in the config and the
   build broke somewhere else. After Sett edits data, build before anything.
+- **An empty endpoint is not empty.** A route file with no `GET` (only a
+  note) made `/robots.txt`, `/llms.txt` and `/manifest.json` serve the HTML of
+  the 404 page. The build only warns. Look at what is in `dist/`.
 - **Transitive dependencies.** If you import a package, it must be listed in
   `package.json`, even when it is already in `node_modules`.
 

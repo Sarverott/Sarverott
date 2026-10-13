@@ -1,5 +1,8 @@
 {
-	"metadata": {},
+	"metadata": {
+		"description": "Portfolio and front door of Sett Sarverott - one place that routes to every profile, package registry and feed of Sett's open source work.",
+		"repository": "https://github.com/Sarverott/Sarverott"
+	},
 	"emails": ["sett@sarverott.com", "sarverott@gmail.com"],
 	"attestations": ["https://orcid.org/0009-0006-4604-6540"],
 	"rss": {

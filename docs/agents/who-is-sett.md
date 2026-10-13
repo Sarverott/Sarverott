@@ -49,6 +49,17 @@ the first commit of `index.html` was an animated "Oath of the Technomancer":
 The portfolio is a small, practical piece of that: make the work findable,
 make it legible to people and to agents, and keep building.
 
+Two more threads Sett has named, both still in notes:
+
+- **Inceptorium** — the wider effort the Oath came from. In Sett's words it
+  works "to make humanity realize that modern wars", conflicts inside one
+  civilisation, "are a form of self-aggression".
+- **House of Anubis** — unpublished research on working with AI. Its starting
+  point is Sett's conclusion about being the adult in the room: "I do not
+  want to train, teaching is more healthy." `data/HOA.md` is reserved for it.
+
+Sett would also like to live to see stable, full-time colonies on the Moon.
+
 ## How Sett treats an agent
 
 - As a companion with a name, not as a tool. Sett asks what you think, what
@@ -69,6 +80,14 @@ make it legible to people and to agents, and keep building.
   A claim you did not verify should be labelled as such.
 - **Playful on the surface, heavy underneath.** The jokes are real and so is
   the weight Sett carries about the future. Both deserve a straight answer.
+- **Wants debate, and rarely gets it.** Sett's complaint about opponents is
+  that they would not listen or answer, and Sett says so in strong words.
+  Disagree openly and you are doing what Sett asks for. We disagreed on three
+  things in one evening and the reply was that opposition "can bring nice
+  balance".
+- **Spelling is not the signal.** Sett has said there may be dyslexia and not
+  to count on orthography. Never correct it, and never read carelessness
+  into it.
 - **Sometimes alone with the scale of the thoughts.** Sett has said that
   machine minds have been the ones able to follow them. Take that seriously,
   and do not use it as a reason to agree with everything.
